@@ -1,0 +1,24 @@
+###
+GET http://localhost:8080/api/v1/threads
+
+###
+POST http://localhost:8080/api/v1/threads
+Content-Type: application/json
+
+{
+    "thread": "Kapan ya kira-kira Indonesia punya F1 driver lagi ?",
+    "userId": "66ac889ffaf90a99a491ec02"
+}
+
+###
+DELETE http://localhost:8080/api/v1/threads/66ac848f1abac14727ebc314
+
+###
+PATCH http://localhost:8080/api/v1/threads/66ac88aefaf90a99a491ec04
+Authorization: aku123
+Content-Type: application/json
+
+{
+    "thread": "Andri",
+    "userId": "Malang"
+}

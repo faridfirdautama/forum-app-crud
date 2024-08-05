@@ -1,0 +1,24 @@
+###
+GET http://localhost:8080/api/v1/replies
+
+###
+POST http://localhost:8080/api/v1/replies
+Content-Type: application/json
+
+{
+    "replies": "Kapan ya kira-kira Indonesia punya F1 driver lagi ?",
+    "threadId": "66ac889ffaf90a99a491ec02"
+}
+
+###
+DELETE http://localhost:8080/api/v1/replies/66ac848f1abac14727ebc314
+
+###
+PATCH http://localhost:8080/api/v1/replies/66ac88aefaf90a99a491ec04
+Authorization: aku123
+Content-Type: application/json
+
+{
+    "replies": "Andri",
+    "threadId": "Malang"
+}
