@@ -15,7 +15,7 @@ app.use("/api/v1/threads", threadRouter);
 app.use("/api/v1/replies", repliesRouter);
 
 mongoose
-  .connect(process.env.URI_MONGO_DEV as string)
+  .connect(process.env.URI_MONGO_DEVSCALE as string)
   .then(() => console.log("MongoDB connected"))
   .catch(() => console.log("MongoDB connection failed"));
 
