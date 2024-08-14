@@ -10,6 +10,14 @@ const repliesService = {
       console.log(`Service Error: ${error}`);
     }
   },
+  getReplies: async (id: string) => {
+    try {
+      const replies = await repliesRepository.getReplies(id);
+      return replies;
+    } catch (error) {
+      console.log(`Service Error: ${error}`);
+    }
+  },
   createReplies: async (replies: IReplies) => {
     try {
       const newReplies = await repliesRepository.createReplies(replies);
