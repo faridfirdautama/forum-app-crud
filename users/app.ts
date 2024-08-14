@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { userRouter } from "./routes/user.route";
 
@@ -9,11 +8,6 @@ const app = express();
 const port: number = 8080;
 app.use(express.json());
 app.use("/api/v1/users", userRouter);
-
-mongoose
-  .connect(process.env.URI_MONGO_DEVSCALE as string)
-  .then(() => console.log("MongoDB connected"))
-  .catch(() => console.log("MongoDB connection failed"));
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
