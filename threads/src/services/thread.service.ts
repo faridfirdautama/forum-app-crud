@@ -10,15 +10,20 @@ const threadService = {
       console.log(`Service Error: ${error}`);
     }
   },
+  getThread: async (id: string) => {
+    try {
+      const thread = await threadRepository.getThread(id);
+      return thread;
+    } catch (error) {
+      console.log(`Service Error: ${error}`);
+    }
+  },
   createThread: async (thread: IThread) => {
     try {
       // validation
       if (thread.thread.length < 10) {
         const tLength = thread.thread.length;
-        console.log(
-          `${tLength} characters is too short man, make it longer!!!`,
-        );
-        return;
+        return `${tLength} characters is too short man, make it longer!!!`;
       }
       const newThread = await threadRepository.createThread(thread);
       return newThread;
