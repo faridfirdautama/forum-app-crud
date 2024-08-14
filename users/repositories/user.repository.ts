@@ -10,6 +10,14 @@ const UserRepository = {
       console.log(`Repository Error: ${error}`);
     }
   },
+  getUser: async (id: string) => {
+    try {
+      const user = await User.findById(id);
+      return user;
+    } catch (error) {
+      console.log(`Repository Error: ${error}`);
+    }
+  },
   createUser: async (user: IUser) => {
     try {
       const newUser = new User(user);
