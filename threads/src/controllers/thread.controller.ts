@@ -6,9 +6,17 @@ const ThreadController = {
     const threads = await ThreadService.getAllThreads();
     return res.status(200).json({ message: "List of Threads", data: threads });
   },
+  handleGetThread: async (req: Request, res: Response) => {
+    const threadId = req.params.id;
+    const thread = await ThreadService.getThread(threadId);
+    return res.status(200).json({ message: "Thread", data: thread });
+  },
   handleCreateThread: async (req: Request, res: Response) => {
     const { thread, userId } = req.body;
     await ThreadService.createThread({ thread, userId });
+    if (typeof thread === "string") {
+      return res.status(400).json({ message: "Thread is required" });
+    }
     return res
       .status(201)
       .json({ message: "Thread created", data: { thread, userId } });

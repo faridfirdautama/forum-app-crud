@@ -10,12 +10,20 @@ const UserService = {
       console.log(`Service Error: ${error}`);
     }
   },
+  getUser: async (id: string) => {
+    try {
+      const user = await UserRepository.getUser(id);
+      return user;
+    } catch (error) {
+      console.log(`Service Error: ${error}`);
+    }
+  },
   createUser: async (user: IUser) => {
     try {
       // inputValidation
       if (!user.name) {
         console.log("Name is required");
-        return;
+        return "Name is required";
       }
       const newUser = await UserRepository.createUser(user);
       return newUser;

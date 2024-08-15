@@ -10,6 +10,14 @@ const threadRepository = {
       console.log(`Repository Error: ${error}`);
     }
   },
+  getThread: async (id: string) => {
+    try {
+      const thread = await Thread.findById(id).populate("userId");
+      return thread;
+    } catch (error) {
+      console.log(`Repository Error: ${error}`);
+    }
+  },
   createThread: async (thread: IThread) => {
     try {
       const newThread = new Thread(thread);

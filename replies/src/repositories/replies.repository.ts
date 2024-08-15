@@ -10,6 +10,14 @@ const repliesRepository = {
       console.log(`Repository Error: ${error}`);
     }
   },
+  getReplies: async (id: string) => {
+    try {
+      const replies = await Replies.findById(id).populate("threadId");
+      return replies;
+    } catch (error) {
+      console.log(`Repository Error: ${error}`);
+    }
+  },
   createReplies: async (replies: IReplies) => {
     try {
       const newReplies = new Replies(replies);
